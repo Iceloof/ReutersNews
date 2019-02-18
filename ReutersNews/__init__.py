@@ -25,7 +25,7 @@ class ReutersNews:
 
         def setrelevancy(self, relevancy):
                 self.relevancy = relevancy
-       
+
         def get(self):
                 url = 'https://uk.mobile.reuters.com/assets/jsonCompanyNews?channel=companyNewsEntity&defaultDaysInterval=' + str(self.days) + '&limit=' + str(self.limit) + '&relevancy=' + str(self.relevancy) + '&symbol=' + self.ticker + '&endTime=' + str(self.end)+'000'
                 res = requests.get(url)
@@ -33,13 +33,13 @@ class ReutersNews:
                 result = []
                 tmp = ''
                 for item in data['headlines']:
-			if tmp == '':
-				tmp = item['blurb']
-			else:
-				ratio = SequenceMatcher(None,tmp,item['blurb']).ratio()
-				if ratio <= 0.5:
-                        		result.append({'title':item['headline'].replace('\n', ' '),'desc':item['blurb'].replace('\n', ' '),'time':item['formattedDate'].replace('\n', ' ')})
-					tmp = item['blurb']
+                        if tmp == '':
+                                tmp = item['blurb']
+                        else:
+                                ratio = SequenceMatcher(None,tmp,item['blurb']).ratio()
+                                if ratio <= 0.5:
+                                        result.append({'title':item['headline'].replace('\n', ' '),'desc':item['blurb'].replace('\n', ' '),'time':item['formattedDate'].replace('\n', ' ')})
+                                        tmp = item['blurb']
                 return result
 
 
