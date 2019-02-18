@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ReutersNews",
-    version="1.0.2",
+    version="1.0.3",
     author="Hurin Hu",
     author_email="hurin@live.ca",
     description="Search company's news on Reuters",
@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/HurinHu/ReutersNews",
     packages=setuptools.find_packages(),
+    install_requires=['pandas'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

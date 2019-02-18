@@ -2,6 +2,7 @@ import requests
 import json
 import datetime
 import pandas as pd
+from difflib import SequenceMatcher
 
 class ReutersNews:
         def __init__(self):
@@ -30,8 +31,22 @@ class ReutersNews:
                 res = requests.get(url)
                 data = json.loads(res.text)
                 result = []
+		tmp = ''
+		results = []
+		for item in result:
+			
+				ratio = SequenceMatcher(None,tmp,item['desc']).ratio()
+				if ratio <= 0.5:
+					results.append(item['desc'])
+					tmp = item['desc']
                 for item in data['headlines']:
-                        result.append({'title':item['headline'].replace('\n', ' '),'desc':item['blurb'].replace('\n', ' '),'time':item['formattedDate'].replace('\n', ' ')})
+			if tmp == '':
+				tmp = item['blurb']
+			else:
+				ratio = SequenceMatcher(None,tmp,item['blurb']).ratio()
+				if ratio <= 0.5:
+                        		result.append({'title':item['headline'].replace('\n', ' '),'desc':item['blurb'].replace('\n', ' '),'time':item['formattedDate'].replace('\n', ' ')})
+					tmp = item['blurb']
                 return result
 
 
