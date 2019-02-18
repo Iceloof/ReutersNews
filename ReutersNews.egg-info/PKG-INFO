@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: ReutersNews
+Version: 1.0.0
+Summary: Search company's news on Reuters
+Home-page: https://github.com/HurinHu/ReutersNews
+Author: Hurin Hu
+Author-email: hurin@live.ca
+License: UNKNOWN
+Description: # Reuters News
+        Search company's news on Reuters for Python
+        
+        ## Install
+        ```
+        pip install ReutersNews
+        ```
+        
+        ## Usage
+        - Initializing
+        ```
+        from ReutersNews import ReutersNews
+        news = ReutersNews()
+        ```
+        - Search company by ticker
+        ```
+        news.search('AAPL.OQ')
+        ```
+        - Set date range
+        ```
+        news.range('2019-01-01','2019-01-10')
+        ```
+        - Set news relevancy
+        ```
+        news.setrelevancy(0.8)
+        ```
+        - Set limit number of return result
+        ```
+        news.setlimit(10000)
+        ```
+        - Get search result
+        ```
+        news.get()
+        ```
+        Sample return result(list)
+        ```
+        [{'title':...,'desc':...,'time':...},{'title':...,'desc':...,'time':...},{'title':...,'desc':...,'time':...}]
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

@@ -1,0 +1,7 @@
+README.md
+setup.py
+ReutersNews/__init__.py
+ReutersNews.egg-info/PKG-INFO
+ReutersNews.egg-info/SOURCES.txt
+ReutersNews.egg-info/dependency_links.txt
+ReutersNews.egg-info/top_level.txt
