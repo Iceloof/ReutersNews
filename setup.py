@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ReutersNews",
-    version="1.0.3",
+    version="1.1.0",
     author="Hurin Hu",
     author_email="hurin@live.ca",
     description="Search company's news on Reuters",

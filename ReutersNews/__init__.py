@@ -31,14 +31,7 @@ class ReutersNews:
                 res = requests.get(url)
                 data = json.loads(res.text)
                 result = []
-		tmp = ''
-		results = []
-		for item in result:
-			
-				ratio = SequenceMatcher(None,tmp,item['desc']).ratio()
-				if ratio <= 0.5:
-					results.append(item['desc'])
-					tmp = item['desc']
+                tmp = ''
                 for item in data['headlines']:
 			if tmp == '':
 				tmp = item['blurb']
