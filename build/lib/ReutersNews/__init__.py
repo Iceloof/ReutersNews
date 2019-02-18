@@ -31,7 +31,7 @@ class ReutersNews:
                 data = json.loads(res.text)
                 result = []
                 for item in data['headlines']:
-                        result.append({'title':item['headline'],'desc':item['blurb'],'time':item['formattedDate']})
+                        result.append({'title':item['headline'].replace('\n', ' '),'desc':item['blurb'].replace('\n', ' '),'time':item['formattedDate'].replace('\n', ' ')})
                 return result
 
 
